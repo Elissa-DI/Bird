@@ -80,4 +80,26 @@ function play(){
                 bird_dy = -7.6;
             }
         });
-       
+        document.addEventListener('keyup', (e) => {
+            if(e.key == 'ArrowUp' || e.key == ' '){
+                img.src = 'images/Bird.png';
+            }
+        });
+
+        if(bird_props.top <= 0 || bird_props.bottom >= background.bottom){
+            game_state = 'End';
+            message.style.left = '28vw';
+            window.location.reload();
+            message.classList.remove('messageStyle');
+            return;
+        }
+        bird.style.top = bird_props.top + bird_dy + 'px';
+        bird_props = bird.getBoundingClientRect();
+        requestAnimationFrame(apply_gravity);
+    }
+    requestAnimationFrame(apply_gravity);
+
+    let pipe_seperation = 0;
+
+    let pipe_gap = 35;
+
