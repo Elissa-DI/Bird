@@ -103,3 +103,14 @@ function play(){
 
     let pipe_gap = 35;
 
+    function create_pipe(){
+        if(game_state != 'Play') return;
+
+        if(pipe_seperation > 115){
+            pipe_seperation = 0;
+
+            let pipe_posi = Math.floor(Math.random() * 43) + 8;
+            let pipe_sprite_inv = document.createElement('div');
+            pipe_sprite_inv.className = 'pipe_sprite';
+            pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
+            pipe_sprite_inv.style.left = '100vw';
