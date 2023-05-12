@@ -59,3 +59,25 @@ function play(){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                         sound_point.play();
                     }
+
+                    //From here
+
+                    element.style.left = pipe_sprite_props.left - move_speed + 'px';
+                }
+            }
+        });
+        requestAnimationFrame(move);
+    }
+    requestAnimationFrame(move);
+
+    let bird_dy = 0;
+    function apply_gravity(){
+        if(game_state != 'Play') return;
+        bird_dy = bird_dy + grativy;
+        document.addEventListener('keydown', (e) => {
+            if(e.key == 'ArrowUp' || e.key == ' '){
+                img.src = 'images/Bird-2.png';
+                bird_dy = -7.6;
+            }
+        });
+       
